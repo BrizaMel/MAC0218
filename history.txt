@@ -1,0 +1,64 @@
+
+Comando usado para obter a imagem do caddy:
+
+docker pull caddy
+
+Comando usado para criar imagem a partir do Dockerfile:
+
+docker image build . -t custom-image:2.5.0-alpine
+
+- O . é o contexto
+- custom-image é o nome da imagem
+- 2.5.0-alpine é a versão da imagem
+
+Comando usado para criar um container a partir dessa imagem:
+
+docker run \
+    --name my-caddy-server \
+    -p 8080:80  \
+    -d custom-image:2.5.0-alpine
+
+Comando usado para executar o terminal dentro do container my-caddy-server:
+
+docker exec -it my-caddy-server sh
+
+Comando usado para ver os containers em execução:
+
+docker container ls
+
+Comandos usados para parar e remover o container my-caddy-server (respectivamente):
+
+docker container stop my-caddy-server
+docker container rm my-caddy-server
+
+Comando usado para ver todos os containers (em execução ou não):
+
+docker container ps -a 
+
+Comando usado para criar um volume:
+
+docker run \
+    --name my-caddy-server \
+    -p 8080:80  \
+    -v ${PWD}:/usr/src/pages
+    -d custom-image:2.5.0-alpine
+
+
+Comandos usados para parar e remover o container my-caddy-server (respectivamente):
+
+docker container stop my-caddy-server
+docker container rm my-caddy-server
+
+Comando usado para ver todas as imagens:
+
+docker images
+
+Comando usado para apagar a imagem custom-image:
+
+docker image rm custom-image:2.5.0-alpine
+
+
+
+
+
+
